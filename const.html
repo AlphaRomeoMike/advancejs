@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Const in JS</title>
+</head>
+
+<body>
+    <script>
+        /* JavaScript const variables must be assigned a value when they are declared
+         * It is a little misleading, it does not define a constant value
+         * It defines a constant primitive reference to a value
+         * Therefore we cannot change the constants primitive values.
+         * 
+         * const Pi 
+         * Pi = 3.1416 -------> This will throw an exception
+         * 
+         * Therefore we NEED TO ASSIGN A VALUE TO const that we are declaring
+         * 
+         */
+
+        const Pi = 3.141
+        alert(Pi);
+    </script>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = 10; // Here x is 10
+        {
+            const x = 2;
+            document.getElementById('demo').innerHTML = x
+        }
+        // console.log(x);
+
+        /*
+         * You can change the properties of a constant object, in this case, car
+         */
+        const car = {
+            type: "BMW",
+            model: "M3-Power",
+            color: "white"
+        }
+
+        var col;
+        col = document.write(car.color);
+
+        car.color = "Blue"
+        col2 = document.write(car.color);
+
+        /*
+         * But you cannot reassign a constant object, in this case, car -----> The code below will throw exception
+         */
+        car = {
+            type: "Dodge",
+            model: "SRT-100",
+            color: "Yellow"
+        }
+        console.log(car);
+    </script>
+</body>
+
+</html>
