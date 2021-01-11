@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope in JS</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        // Code here can't use variable y, because a function creates a new scope
+        // Var x is Global Scope to the document
+        var x = "Hello";
+
+        function hello() {
+            // Var y is local scope to hello function
+            var y = "world";
+            document.getElementById('demo').innerHTML = x + " " + y;
+            // Local variables are deleted when the function is completed.
+        }
+        hello();
+        console.log(y);
+    </script>
+</body>
+
+</html>
