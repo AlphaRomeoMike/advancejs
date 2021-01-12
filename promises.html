@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <h2>JavaScript SetTimeout()</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo"></h1>
+    <script>
+        /*
+         * A promise is a javascript object that links producing code and consuming code
+         * When executing code obtains a result it should call "success" or "error" 
+         * A promise object can be - Pending, Fulfilled, Rejected
+         * 
+         * A promise object has two properties: state and result
+         * While a Promise object is "pending" (working), the result is undefined.
+         * When a Promise object is "fulfilled", the result is a value.
+         * When a Promise object is "rejected", the result is an error object.
+         */
+
+        //  An example of code block without promise is like this, but incase when we don't know the callback of any API call we can programatically use promises to kep our application running in a stateless motion
+
+        /*
+        setTimeout(function() {
+            myFunction("I love You !!!");
+        }, 3000);
+
+        function myFunction(value) {
+            document.getElementById("demo").innerHTML = value;
+        } 
+        */
+        //    By using promises, we can await for any thing we want, in some cases of API callback or other
+        let myPromise = new Promise(function(myResolve, myReject) {
+            setTimeout(function() {
+                myResolve("I love You !!");
+            }, 3000);
+        });
+
+        myPromise.then(function(value) {
+            document.getElementById("demo").innerHTML = value;
+        });
+    </script>
+</body>
+
+</html>
