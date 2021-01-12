@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks Page 1</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="result"></p>
+    <script>
+        // The first function will run in this case while doing functional code
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        function myFirst() {
+            myDisplayer("Hello");
+        }
+
+        function mySecond() {
+            myDisplayer("Goodbye");
+        }
+
+        myFirst();
+        mySecond();
+
+        // A callback function can run after another function has run
+
+        /*
+         *  Sometimes we like to have control over when to execute a function, 
+         *  Suppose we need to perform a calculation and then display the result
+         *  You can call a calculation function to save the result and then another function to display the result
+         *  For this example see the code below
+         */
+        /*
+        function myDisplayer(some) {
+            document.getElementById("result").innerHTML = some;
+        }
+
+        function myCalculator(num1, num2) {
+            let sum = num1 + num2
+            myDisplayer(sum)
+        }
+            
+        myCalculator(10, 5)
+        */
+
+        /*
+         *  The problem here is that we need to call two functions to display the result
+         *  The problem with second example is that you cannot prevent the calculator function from displaying the result
+         *  When using a callback, we can minimize this affect
+         * 
+         *  "A CALLBACK IS A FUNCTION THAT IS PASSED AS AN ARGUMENT TO ANOTHER FUNCTION"
+         *  Using a callback, you could call the calculator function (myCalculator) with a callback, and let the calculator function run the callback after the calculation is finished
+         * 
+         */
+
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+
+        myCalculator(5, 5, myDisplayer);
+    </script>
+    <p id="cb"></p>
+</body>
+
+</html>
